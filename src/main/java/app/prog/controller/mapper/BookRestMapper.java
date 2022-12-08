@@ -14,11 +14,4 @@ public class BookRestMapper {
                 .hasAuthor(domain.hasAuthor())
                 .build();
     }
-    public BookResponse toCreate(Book domain){
-        return BookResponse.builder()
-                .title(domain.setTitle())
-                .author(domain.setAuthor())
-                .hasAuthor(domain.hasAuthor())
-                .build();
-    }
 }
