@@ -17,13 +17,8 @@ public class BookService {
         return repository.findAll();
     }
 
-    /*
-    TODO-1: Only title and author should be provided during the creation of a new book.
-    The ID is created by default by the database so it should not be provided at all.
-    Therefore, the pageNumber and the releaseDate exists also in the Book model.
-    A solution to create a book without the ID, the pageNumber and the releaseDate ?
-     */
-    public List<Book> createBooks(List<Book> toCreate) {
+
+    public List<Book> createBooks(String title,String author) {
         return repository.saveAll(toCreate);
     }
 
