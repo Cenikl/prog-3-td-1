@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class BookResponsePost {
+public class BookRequestPost {
     private String author;
     private String title;
     private Integer pageNumber = 0;

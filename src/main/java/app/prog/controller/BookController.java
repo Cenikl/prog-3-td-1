@@ -2,7 +2,7 @@ package app.prog.controller;
 
 import app.prog.controller.mapper.BookRestMapper;
 import app.prog.controller.response.BookResponse;
-import app.prog.controller.response.BookResponsePost;
+import app.prog.controller.response.BookRequestPost;
 import app.prog.model.Book;
 import app.prog.service.BookService;
 import lombok.AllArgsConstructor;
@@ -24,7 +24,7 @@ public class BookController {
                 .toList();
     }
     @PostMapping("/books")
-    public List<BookResponsePost> createBooks(@RequestBody List<Book> toCreate) {
+    public List<BookRequestPost> createBooks(@RequestBody List<Book> toCreate) {
         return service.createBooks(toCreate).stream()
                 .map(mapper::toPost)
                 .toList();
@@ -38,7 +38,6 @@ public class BookController {
     }
 
     @DeleteMapping("/books/{bookId}")
-    @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Book not found")
     public BookResponse deleteBook(@PathVariable Integer bookId) {
         return mapper.toRest(service.deleteBook(bookId));
     }
