@@ -4,7 +4,11 @@ import app.prog.model.Book;
 import app.prog.repository.BookRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,17 +28,11 @@ public class BookService {
         return repository.saveAll(toCreate);
     }
 
-    /*
-    TODO-2-i: Why the createBooks and the updateBooks use the same repository method saveAll ?
-    TODO-2-ii : Only ID, title and author should be provided during the update.
-    Therefore, the pageNumber and the release date exists also in the Book model.
-    A solution to update a book without the pageNumber and the releaseDate ?
-     */
     public List<Book> updateBooks(List<Book> toUpdate) {
         return repository.saveAll(toUpdate);
     }
 
-    public Book deleteBook(Integer bookId) {
+    public Book deleteBook(Integer bookId)  {
         /*
         TIPS: From the API, the Class Optional<T> is :
         A container object which may or may not contain a non-null value.
@@ -56,7 +54,8 @@ public class BookService {
         Link 1 : https://www.baeldung.com/spring-response-entity
         Link 2 : https://www.baeldung.com/exception-handling-for-rest-with-spring
          */
-            throw new RuntimeException("Book." + bookId + " not found");
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "Book "+bookId+" not found");
         }
     }
 }

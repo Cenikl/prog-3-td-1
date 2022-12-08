@@ -6,6 +6,7 @@ import app.prog.controller.response.BookResponsePost;
 import app.prog.model.Book;
 import app.prog.service.BookService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,7 +30,6 @@ public class BookController {
                 .toList();
 
     }
-    //TODO: This endpoint does not match with our API. Resolve it in the question-2-ii.
     @PutMapping("/books")
     public List<BookResponse> updateBooks(@RequestBody List<Book> toUpdate) {
         return service.updateBooks(toUpdate).stream()
@@ -38,6 +38,7 @@ public class BookController {
     }
 
     @DeleteMapping("/books/{bookId}")
+    @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Book not found")
     public BookResponse deleteBook(@PathVariable Integer bookId) {
         return mapper.toRest(service.deleteBook(bookId));
     }
