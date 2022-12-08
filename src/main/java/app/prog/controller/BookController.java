@@ -2,6 +2,7 @@ package app.prog.controller;
 
 import app.prog.controller.mapper.BookRestMapper;
 import app.prog.controller.response.BookResponse;
+import app.prog.controller.response.BookResponsePost;
 import app.prog.model.Book;
 import app.prog.service.BookService;
 import lombok.AllArgsConstructor;
@@ -22,7 +23,7 @@ public class BookController {
                 .toList();
     }
     @PostMapping("/books")
-    public List<BookResponse> createBooks(List<Book> toCreate) {
+    public List<BookResponsePost> createBooks(@RequestBody List<Book> toCreate) {
         return service.createBooks(toCreate).stream()
                 .map(mapper::toPost)
                 .toList();
@@ -32,7 +33,7 @@ public class BookController {
     @PutMapping("/books")
     public List<BookResponse> updateBooks(@RequestBody List<Book> toUpdate) {
         return service.updateBooks(toUpdate).stream()
-                .map(mapper::toPost)
+                .map(mapper::toRest)
                 .toList();
     }
 

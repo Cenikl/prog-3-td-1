@@ -1,8 +1,6 @@
 package app.prog.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,10 +16,14 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Book {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique=true, nullable = false)
     private Integer id;
     private String title;
     private String author;
-    private Integer pageNumber;
+
+    private Integer pageNumber = 0;
+
     private LocalDate releaseDate;
 
     public boolean hasAuthor() {
