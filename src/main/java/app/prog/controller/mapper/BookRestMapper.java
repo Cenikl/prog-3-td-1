@@ -14,4 +14,10 @@ public class BookRestMapper {
                 .hasAuthor(domain.hasAuthor())
                 .build();
     }
+    public BookResponse toPost(Book domain) {
+        return BookResponse.builder()
+                .title(domain.getTitle())
+                .author(domain.getAuthor())
+                .build();
+    }
 }
