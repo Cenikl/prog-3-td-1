@@ -1,5 +1,6 @@
 package app.prog.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,11 +26,12 @@ public class BookEntity {
     //TODO-6: join BookEntity with AuthorEntity and make the correct change so that the API does not change
     // Must know : a book can have only one author but an author can have many books
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private AuthorEntity authorEntity;
-    private String author = authorEntity.getName();
+    private String author ;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable()
     private List<Category> categories;
 
     private Integer pageNumber;

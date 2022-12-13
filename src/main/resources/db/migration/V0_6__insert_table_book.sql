@@ -1,0 +1,10 @@
+insert into category (id,name) values (1,"One");
+insert into category (id,name) values (2,"Two");
+insert into category (id,name) values (3,"Three");
+insert into category (id,name) values (4,"Four");
+insert into category (id,name) values (5,"Five");
+insert into category (id,name) values (6,"Six");
+insert into category (id,name) values (7,"Seven");
+insert into category (id,name) values (8,"Eight");
+insert into category (id,name) values (9,"Nine");
+insert into category (id,name) values (10,"Ten");

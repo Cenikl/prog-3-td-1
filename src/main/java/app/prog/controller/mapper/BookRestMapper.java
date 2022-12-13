@@ -12,7 +12,7 @@ public class BookRestMapper {
         return BookResponse.builder()
                 .id(domain.getId())
                 .title(domain.getTitle())
-                .author(domain.getAuthor())
+                .author(domain.getAuthorEntity() == null ? domain.getAuthorEntity().getName() : null)
                 .categories(domain.getCategories())
                 .hasAuthor(domain.hasAuthor())
                 .build();
@@ -20,7 +20,7 @@ public class BookRestMapper {
 
     public BookEntity toDomain(CreateBookResponse rest) {
         return BookEntity.builder()
-                .author(rest.getAuthor())
+                .author(rest.getAuthorEntity() == null ? rest.getAuthorEntity().getName() : null)
                 .title(rest.getTitle())
                 .categories(rest.getCategories())
                 .pageNumber(0) //Constraint not null in database, default value is 0
@@ -30,7 +30,7 @@ public class BookRestMapper {
     public BookEntity toDomain(UpdateBookResponse rest) {
         return BookEntity.builder()
                 .id(rest.getId())
-                .author(rest.getAuthor())
+                .author(rest.getAuthorEntity() == null ? rest.getAuthorEntity().getName() : null)
                 .title(rest.getTitle())
                 .categories(rest.getCategories())
                 .pageNumber(0) //Constraint not null in database, default value is 0

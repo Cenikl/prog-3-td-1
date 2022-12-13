@@ -1,0 +1,10 @@
+insert into author (id,name,particularity,birth_date) values (1,"Mcqueen","strong","2021-01-01");
+insert into author (id,name,particularity,birth_date) values (2,"Mcking","strong","2021-02-01");
+insert into author (id,name,particularity,birth_date) values (3,"Seving","strong","2021-03-01");
+insert into author (id,name,particularity,birth_date) values (4,"Chong","strong","2021-04-01");
+insert into author (id,name,particularity,birth_date) values (5,"Chad","strong","2021-05-01");
+insert into author (id,name,particularity,birth_date) values (6,"Bonk","strong","2021-06-01");
+insert into author (id,name,particularity,birth_date) values (7,"Chid","strong","2021-07-01");
+insert into author (id,name,particularity,birth_date) values (8,"Vlad","strong","2021-08-01");
+insert into author (id,name,particularity,birth_date) values (9,"zing","strong","2021-09-01");
+insert into author (id,name,particularity,birth_date) values (10,"flash","strong","2021-10-01");

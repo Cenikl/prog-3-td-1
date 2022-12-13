@@ -15,6 +15,7 @@ import java.util.List;
 @Builder
 public class BookResponse {
     private int id;
+    private AuthorEntity authorEntity;
     private String author;
     private String title;
     private List<Category> categories;
