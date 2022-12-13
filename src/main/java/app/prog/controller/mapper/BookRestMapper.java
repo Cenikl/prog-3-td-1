@@ -13,6 +13,7 @@ public class BookRestMapper {
                 .id(domain.getId())
                 .title(domain.getTitle())
                 .author(domain.getAuthor())
+                .categories(domain.getCategories())
                 .hasAuthor(domain.hasAuthor())
                 .build();
     }
@@ -21,6 +22,7 @@ public class BookRestMapper {
         return BookEntity.builder()
                 .author(rest.getAuthor())
                 .title(rest.getTitle())
+                .categories(rest.getCategories())
                 .pageNumber(0) //Constraint not null in database, default value is 0
                 .build();
     }
@@ -30,6 +32,7 @@ public class BookRestMapper {
                 .id(rest.getId())
                 .author(rest.getAuthor())
                 .title(rest.getTitle())
+                .categories(rest.getCategories())
                 .pageNumber(0) //Constraint not null in database, default value is 0
                 .build();
     }

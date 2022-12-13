@@ -7,6 +7,7 @@ import app.prog.controller.response.UpdateBookResponse;
 import app.prog.model.BookEntity;
 import app.prog.service.BookService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -45,7 +46,7 @@ public class BookController {
     }
 
     @DeleteMapping("/books/{bookId}")
-    public BookResponse deleteBook(@PathVariable Integer bookId) {
-        return mapper.toRest(service.deleteBook(bookId));
+    public ResponseEntity<BookEntity> deleteBook(@PathVariable Integer bookId) {
+        return service.deleteBook(bookId);
     }
 }
